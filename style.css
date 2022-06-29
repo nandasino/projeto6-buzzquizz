@@ -1,6 +1,22 @@
 *{
     font-family: 'Roboto', sans-serif!important;
 }
+body{
+    background-color: #fafafa;
+}
+button{
+    height: 54px;
+    background-color:#EC362D;
+    border: none;
+    border-radius: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left:30px;
+    padding-right: 30px;
+    color: #FFF5F4;
+}
 .topbar{
     display: flex;
     justify-content: center;
@@ -21,14 +37,62 @@
     height: 500px;
     background-color: blueviolet;
 }
-.tela31{
-    width:100%;
+
+/* TELA 3 COMEÇA AQUI*/
+
+.tela3{
     display:flex;
     flex-direction:column;
-    justify-content: center;
     align-items: center;
 }
+.tela3 h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin-top: 2em;
+}
+.tela3 input{
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    width: 100%;
+    height: 46px;
+    margin-bottom:9px;
+    box-sizing: border-box;
+    padding-left: 14px;
+}
+.tela3 ::placeholder{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 22px;
+    color: #BABABA;
+    }
 .caixaTexto{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:600px;
+    height: 256px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-top: 21px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom:12px;
+    margin-top: 1.8em;
+}
+.tela3 button{
+    margin-top: 3.2em;
+}
+@media (max-width: 614px) {
+    .caixaTexto{
+        width: 100%;
+    }
+    .tela3 button{
+        margin-top: 2em;
+    }
 }
