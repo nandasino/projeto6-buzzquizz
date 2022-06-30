@@ -40,6 +40,7 @@ button{
     padding-right: 30px;
     height: 54px;
     color: #FFF5F4;
+    cursor: pointer;
 }
 
 .telaTeste{
@@ -75,6 +76,7 @@ button{
     margin-bottom:9px;
     box-sizing: border-box;
     padding-left: 14px;
+    outline: none;
 }
 .tela3 ::placeholder{
     font-style: italic;

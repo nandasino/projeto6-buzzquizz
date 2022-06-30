@@ -1,4 +1,3 @@
-
 function limpaTela(){
     document.querySelector(".conteudo").innerHTML= "";
 }
@@ -54,7 +53,7 @@ function tela32(){
                 <input type="text" placeholder="URL da imagem"/>
             </div>
         </div>
-        <button>Prosseguir pra criar níveis</button>
+        <button onclick="tela33()">Prosseguir pra criar níveis</button>
     </div>
     `
 }
