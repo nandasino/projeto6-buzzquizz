@@ -29,7 +29,7 @@ function tela32(){
     <div class="tela3 tela32">
         <h1 class="titulo">Crie suas perguntas</h1>
         <div class="areaPergunta">
-            <div class="caixinhaDeTexto"><h1>Pergunta 1</h1><ion-icon name="create-outline" onclick="toggleCriarQuizz()"></ion-icon></div>
+            <div class="caixinhaDeTexto"><h1>Pergunta 1</h1><ion-icon name="create" onclick="toggleCriarQuizz()"></ion-icon></div>
             <div class="caixaTexto">
                     <div class="divisao">
                     <input type="text" placeholder="Texto da pergunta"/>
@@ -62,8 +62,8 @@ function tela32(){
 function toggleCriarQuizz() {
     const caixaPergunta = document.querySelector('.caixaTexto');
     
-    //const caixinhaPergunta = document.querySelector('.caixinhaDeTexto');
+    const aumentaPergunta= document.querySelector('.areaPergunta');
     
     caixaPergunta.classList.toggle('mostrar');
-    //caixinhaPergunta.classList.toggle('escondido');
+    aumentaPergunta.classList.toggle('aumentar');
   }

@@ -88,10 +88,8 @@ button{
     color: #BABABA;
     }
 .areaPergunta {
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
-    border: 1px solid black;
+    height: 74px;
 }
 .caixaTexto{
     display: flex;
@@ -108,17 +106,12 @@ button{
     margin-top: 3.2em;
 }
 
-.tela31 .caixaTexto{
-    height: 256px;
-}
-
 .tela3 .subtitulo{
     font-size: 20px;
     margin-top: 9px;
     margin-bottom: 12px;
 }
 .tela32 .caixaTexto{
-    height: 825px;
     position: relative;
     top:-825px;
     left: 0;
@@ -148,6 +141,9 @@ button{
 
 .caixaTexto.mostrar{
     top:0;
+}
+.areaPergunta.aumentar{
+    height: 900px;
 }
 @media (max-width: 614px) {
     .caixaTexto{
