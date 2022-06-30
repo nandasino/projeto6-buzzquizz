@@ -12,7 +12,7 @@ body{
     align-items: center;
     height: 69px;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     background-color: #EC362D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -61,11 +61,13 @@ button{
     font-style: normal;
     font-weight: 700;
     color: #000000;
+    font-size: 20px;
 }
 .tela3 .titulo{
     font-size: 23px;
     line-height: 23px;
     margin-top: 2em;
+    margin-bottom: 1.8em;
 }
 .tela3 input{
     background: #FFFFFF;
@@ -85,6 +87,12 @@ button{
     line-height: 22px;
     color: #BABABA;
     }
+.areaPergunta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid black;
+}
 .caixaTexto{
     display: flex;
     flex-direction: column;
@@ -95,7 +103,6 @@ button{
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom:12px;
-    margin-top: 1.8em;
 }
 .tela3 button{
     margin-top: 3.2em;
@@ -112,16 +119,44 @@ button{
 }
 .tela32 .caixaTexto{
     height: 825px;
+    position: relative;
+    top:-825px;
+    left: 0;
+    transition: all 300ms linear;
 }
-.caixaTexto div{
+.divisao{
     margin-bottom: 28px;
 }
+.caixinhaDeTexto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+    width: 600px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 1;
+}
+.escondido {
+    display: none;
+  }
 
+.caixaTexto.mostrar{
+    top:0;
+}
 @media (max-width: 614px) {
     .caixaTexto{
         width: 100%;
     }
     .tela3 button{
         margin-top: 2em;
+    }
+    .areaPergunta{
+        width: 100%;
     }
 }
