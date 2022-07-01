@@ -292,3 +292,30 @@ button{
         width: 100%;
     }
 }
+
+@media (max-width: 1100px){
+    .tela1{
+        margin-left: 18px;
+        margin-right: 17px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seus-quizzes{
+        margin-top: 31px;
+    }
+
+    .sem-quizz{
+        margin-right: 0px;
+    }
+
+    .quiz-area{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quiz{
+        width: 100%;
+        margin-right: 0px;
+    }
+}
