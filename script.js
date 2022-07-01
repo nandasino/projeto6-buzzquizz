@@ -3,11 +3,13 @@ function limpaTela(){
 }
 
 telaTeste();
+
 function telaTeste(){
     document.querySelector(".conteudo").innerHTML+=`
 <div class="telaTeste" onclick="tela31()"></div>
 `;
 }
+
 function tela31(){
     limpaTela();
     document.querySelector(".conteudo").innerHTML+=`
@@ -113,6 +115,7 @@ function tela32(){
     </div>
     `
 }
+
 function togglePergunta1() {
     const caixaPergunta1 = document.querySelector('.caixaTexto1');   
     const aumentaPergunta1= document.querySelector('.areaPergunta1');
@@ -134,4 +137,72 @@ function togglePergunta1() {
     caixaPergunta3.classList.toggle('mostrar');
     aumentaPergunta3.classList.toggle('aumentar');
   }
-  
+function tela33(){
+    limpaTela();
+    document.querySelector(".conteudo").innerHTML+=`
+    
+    `
+}
+function tela33(){
+    limpaTela();
+    document.querySelector(".conteudo").innerHTML+=`
+    <div class="tela3 tela33">
+    <h1 class="titulo">Agora, decida os níveis!</h1>
+    <div class="areaNivel areaNivel1">
+        <div class="caixinhaDeTexto"><h1>Nível 1</h1><ion-icon name="create" onclick="toggleNivel1()"></ion-icon></div>
+        <div class="caixaTexto caixaNivel1">
+                <div class="divisao">
+                <input type="text" placeholder="Texto da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                </div>
+        </div>
+    </div>
+    <div class="areaNivel areaNivel2">
+        <div class="caixinhaDeTexto"><h1>Nível 2</h1><ion-icon name="create" onclick="toggleNivel2()"></ion-icon></div>
+        <div class="caixaTexto caixaNivel2">
+                <div class="divisao">
+                <input type="text" placeholder="Texto da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                <input type="text" placeholder="Texto da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                </div>
+        </div>
+    </div>
+    <div class="areaNivel areaNivel3">
+        <div class="caixinhaDeTexto"><h1>Nível 3</h1><ion-icon name="create" onclick="toggleNivel3()"></ion-icon></div>
+        <div class="caixaTexto caixaNivel3">
+                <div class="divisao">
+                <input type="text" placeholder="Texto da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                <input type="text" placeholder="Texto da pergunta"/>
+                <input type="text" placeholder="Cor de fundo da pergunta"/>
+                </div>
+        </div>
+    </div>
+    <button onclick="tela34()">Finalizar Quizz</button>
+</div> 
+    `
+}
+function toggleNivel1() {
+    const caixaNivel1 = document.querySelector('.caixaNivel1');   
+    const aumentaNivel1= document.querySelector('.areaNivel1');
+    
+    caixaNivel1.classList.toggle('mostrar');
+    aumentaNivel1.classList.toggle('aumentar');
+  }
+  function toggleNivel2() {
+    const caixaNivel2 = document.querySelector('.caixaNivel2');   
+    const aumentaNivel2= document.querySelector('.areaNivel2');
+    
+    caixaNivel2.classList.toggle('mostrar');
+    aumentaNivel2.classList.toggle('aumentar');
+  }
+  function toggleNivel3() {
+    const caixaNivel3 = document.querySelector('.caixaNivel3');   
+    const aumentaNivel3 = document.querySelector('.areaNivel3');
+    
+    caixaNivel3.classList.toggle('mostrar');
+    aumentaNivel3.classList.toggle('aumentar');
+  }
