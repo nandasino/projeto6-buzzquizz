@@ -13,10 +13,28 @@ function tela31(){
             <input type="text" placeholder="Quantidade de perguntas do quizz"/>
             <input type="text" placeholder="Quantidade de níveis do quizz"/>
         </div>
-        <button onclick="tela32()"><p>Prosseguir pra criar perguntas</p></button>
+        <button onclick="verificaTela31()"><p>Prosseguir pra criar perguntas</p></button>
     </div>
     `;
 }
+
+let qtdPerguntas = 0;
+
+function verificaTela31(){
+    const titulo = document.querySelector('input:nth-child(1)').value;
+    const url = document.querySelector('input:nth-child(2)').value;
+    qtdPerguntas = document.querySelector('input:nth-child(3)').value;
+    qtdNiveis = document.querySelector('input:nth-child(4)').value;
+
+    if(titulo && url && qtdPerguntas && qtdNiveis){
+        qtdPerguntas = Number(qtdPerguntas);
+        console.log(qtdPerguntas)
+        tela32();
+    }else{
+        alert("Por favor, preencha todos os campos.")
+    }
+}
+
 function tela32(){
     limpaTela();
     document.querySelector(".conteudo").innerHTML+=`
@@ -284,6 +302,6 @@ function preencheQuizzes(resposta){
 }
 
 criaTela1();
-
+tela31();
 
   
