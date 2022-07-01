@@ -293,9 +293,12 @@ button{
     .areaPergunta{
         width: 100%;
     }
-<<<<<<< HEAD
-=======
-}
+    .areaNivel{
+    width: 100%;}
+
+    .caixinhaDeTexto{
+    width: 100%;
+    }
 
 @media (max-width: 1100px){
     .tela1{
@@ -323,9 +326,4 @@ button{
         margin-right: 0px;
 >>>>>>> f1c9b1fda1b2ea1220ef4594e3846f5ab1cf78c9
     }
-    .areaNivel{
-        width: 100%;
-    }
-    .caixinhaDeTexto{
-        width: 100%;
 }
