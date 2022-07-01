@@ -200,6 +200,7 @@ function toggleNivel1() {
   }
 
 function criaTela1(){
+    limpaTela();
     const conteudo = document.querySelector('.conteudo');
     conteudo.innerHTML = 
     `
