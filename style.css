@@ -207,11 +207,13 @@ button{
     overflow: hidden;
     height: 74px;
     margin-bottom: 22px;
+    box-sizing: border-box;
 }
 .areaNivel {
     overflow: hidden;
     height: 74px;
     margin-bottom: 22px;
+    box-sizing: border-box;
 }
 .caixaTexto{
     display: flex;
@@ -289,6 +291,12 @@ button{
         margin-top: 2em;
     }
     .areaPergunta{
+        width: 100%;
+    }
+    .areaNivel{
+        width: 100%;
+    }
+    .caixinhaDeTexto{
         width: 100%;
     }
 }
