@@ -43,6 +43,7 @@ button{
     cursor: pointer;
 }
 
+/*TELA APENAS PARA SIMULAR TELA DE INÍCO*/
 .telaTeste{
     display: flex;
     width: 100%;
@@ -90,6 +91,7 @@ button{
 .areaPergunta {
     overflow: hidden;
     height: 74px;
+    margin-bottom: 22px;
 }
 .caixaTexto{
     display: flex;
@@ -109,13 +111,14 @@ button{
 .tela3 .subtitulo{
     font-size: 20px;
     margin-top: 9px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
 }
 .tela32 .caixaTexto{
     position: relative;
     top:-825px;
     left: 0;
     transition: all 300ms linear;
+    padding-top: 0;
 }
 .divisao{
     margin-bottom: 28px;
@@ -145,7 +148,10 @@ button{
 .areaPergunta.aumentar{
     height: 900px;
 }
+
 @media (max-width: 614px) {
+
+    /* TELA 3*/
     .caixaTexto{
         width: 100%;
     }
