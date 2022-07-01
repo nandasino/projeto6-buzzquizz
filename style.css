@@ -51,6 +51,126 @@ button{
     background-color: blueviolet;
 }
 
+/* TELA 1 COMEÇA AQUI*/
+
+.tela1{
+    margin-left: 194px;
+    margin-right: 180px;
+}
+
+.seus-quizzes{
+    margin-top: 138px;
+}
+
+.todos-quizzes{
+    margin-top: 48px;
+}
+
+.cabecalho-area{
+    display: flex;
+    align-items: center;
+}
+
+.titulo-area{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin-right: 17px;
+    
+}
+
+.botao-adicionar ion-icon{
+    width: 31px;
+    height: 30px;
+    color: #EC362D;
+
+}
+
+.quiz-area{
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.quiz{
+    position: relative;
+    width: 340px;
+    height: 181px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 13px;
+}
+
+.quiz img{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.titulo-quiz{
+    position: absolute;
+    width: 309px;
+    height: 54px;
+    bottom: 0px;
+    left: 17px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.sem-quizz{
+    margin-right: 15px;
+    height: 181px;
+    border: 1px dashed red;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aviso{
+    width: 250px;
+    margin-top: 7px;
+    height: 107px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #B9B9B9;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.moldura{
+    width: 151px;
+    height: 40px;
+    border: 1px dashed #EC362D;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-criar{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #EC362D;
+}
+
+
 /* TELA 3 COMEÇA AQUI*/
 
 .tela3{

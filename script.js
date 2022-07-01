@@ -206,3 +206,91 @@ function toggleNivel1() {
     caixaNivel3.classList.toggle('mostrar');
     aumentaNivel3.classList.toggle('aumentar');
   }
+
+function criaTela1(){
+    const conteudo = document.querySelector('.conteudo');
+    conteudo.innerHTML = 
+    `
+    <div class="tela1">
+
+        <div class="seus-quizzes">
+            
+        </div>
+
+        <div class="todos-quizzes">
+            <div class="cabecalho-area">
+                <div class="titulo-area"> 
+                    Todos os Quizzes
+                </div>
+            </div>
+            <div class="quiz-area">
+            </div>
+        </div>
+    </div>
+
+    `
+    geraQuizzes();
+}
+
+const listaSeusQuizzes = [];
+
+function geraQuizzes(){
+    const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
+    promessa.then(preencheQuizzes);
+}
+
+function preencheQuizzes(resposta){
+    
+    const SeusQuizzes = document.querySelector('.seus-quizzes');
+    if (listaSeusQuizzes.length > 0){
+        SeusQuizzes.innerHTML = 
+        `
+        <div class="cabecalho-area">
+            <div class="titulo-area">
+                Seus Quizzes
+            </div>
+            <div class="botao-adicionar">
+                <ion-icon name="add-circle" onclick="tela31()"></ion-icon>
+            </div>
+        </div>
+        <div class="quiz-area">
+        <div class="quiz">
+            <img src="Imagens/Rectangle 36.png" alt="">
+            <div class="titulo-quiz">TESTE</div>
+        </div>
+        </div>
+
+        `
+    }else{
+        SeusQuizzes.innerHTML = 
+        `
+        <div class="sem-quizz">
+            <div class="aviso">Você não criou nenhum quizz ainda :(</div>
+            <div class="moldura">
+                <div class="botao-criar" onclick="tela31()">Criar Quizz</div>
+            </div>    
+        </div>
+
+        `
+    }
+
+    const listaQuizzes = resposta.data;
+    const todosQuizzesArea = document.querySelector('.todos-quizzes .quiz-area');
+
+    for(let index=0; index < listaQuizzes.length; index++){
+        todosQuizzesArea.innerHTML += 
+
+        `
+        <div class="quiz">
+            <img src="${listaQuizzes[index].image}" alt="">
+            <div class="titulo-quiz">${listaQuizzes[index].title}</div>
+        </div>
+
+        `
+    }
+}
+
+criaTela1();
+
+
+  
