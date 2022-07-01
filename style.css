@@ -43,14 +43,6 @@ button{
     cursor: pointer;
 }
 
-/*TELA APENAS PARA SIMULAR TELA DE INÍCO*/
-.telaTeste{
-    display: flex;
-    width: 100%;
-    height: 500px;
-    background-color: blueviolet;
-}
-
 /* TELA 1 COMEÇA AQUI*/
 
 .tela1{
