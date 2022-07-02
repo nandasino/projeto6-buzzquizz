@@ -244,7 +244,15 @@ function verificaTela33(){
 }
 
 function tela34(){
-    document.querySelector('.conteudo').innerHTML = "Cabou-se"
+    document.querySelector('.conteudo').innerHTML = 
+    `
+    <div class="tela34">
+        <h1>Seu quiz está pronto!</h1>
+        <img src="Imagens/Rectangle 36.png" alt="">
+        <div class="acessar-quizz"><p>Acessar Quizz</p></div>
+        <div class="voltar-home">Voltar para home</div>
+    </div>
+    `
 
     const request = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', quizAPI);
     request.then(() => alert("Foi postado!"))
@@ -380,7 +388,7 @@ function resultadoQuiz(){
     </div>
     `  
 }
-criaTela1();
+//criaTela1();
 //tela31();
 //tela2();
   

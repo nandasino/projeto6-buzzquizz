@@ -373,9 +373,11 @@ button{
 }
 
 .tela34{
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .tela34 h1{
@@ -384,6 +386,37 @@ button{
     font-size: 20px;
     line-height: 23px;
     color: #000000;
+}
+
+.acessar-quizz{
+    width: 220.32px;
+    height: 44px;
+    background: #EC362D;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.acessar-quizz p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFF5F4;
+    
+}
+
+.voltar-home{
+    width: 219.64px;
+    height: 44px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #818181;
 }
 
 @media (max-width: 1100px){
