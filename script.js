@@ -326,13 +326,21 @@ function preencheQuizzes(resposta){
         todosQuizzesArea.innerHTML += 
 
         `
-        <div class="quiz" onclick="tela2()">
+        <div class="quiz" onclick="buscarQuiz()">
             <img src="${listaQuizzes[index].image}" alt="">
             <div class="titulo-quiz">${listaQuizzes[index].title}</div>
         </div>
 
         `
     }
+}
+function buscarQuiz(){
+    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9436");
+    promessa.then(popularQuiz);
+}
+function popularQuiz(resposta){
+    conteudoQuiz= resposta.data;
+    tela2();
 }
 function tela2(){
     limpaTela();
