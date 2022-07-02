@@ -391,7 +391,7 @@ function resultadoQuiz(){
     </div>
     `  
 }
-//criaTela1();
+criaTela1();
 //tela31();
 //tela2();
   
