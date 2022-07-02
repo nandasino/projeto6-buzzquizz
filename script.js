@@ -247,6 +247,7 @@ function preencheQuizzes(resposta){
     }
 
     const listaQuizzes = resposta.data;
+    console.log(listaQuizzes);
     const todosQuizzesArea = document.querySelector('.todos-quizzes .quiz-area');
 
     for(let index=0; index < listaQuizzes.length; index++){
@@ -287,7 +288,7 @@ function tela2(){
     `
 }
 
-//criaTela1();
+criaTela1();
 //tela31();
 //tela2();
   
