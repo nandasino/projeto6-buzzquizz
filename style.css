@@ -274,7 +274,7 @@ button{
     margin-top: 2em;
     margin-bottom: 1.8em;
 }
-.tela3 input{
+.tela3 input, textarea{
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
@@ -284,6 +284,10 @@ button{
     box-sizing: border-box;
     padding-left: 14px;
     outline: none;
+}
+
+.tela3 textarea{
+    height: 177px;
 }
 
 .tela3 ::placeholder{
