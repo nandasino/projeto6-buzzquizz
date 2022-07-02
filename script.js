@@ -109,7 +109,7 @@ function togglePergunta(elemento) {
 }
 
 function verificaTela32(){
-    let perguntaOk = 0;
+    quizAPI.questions.length = 0;
 
     for(let index=1; index <= qtdPerguntas; index++){
         const areaPergunta = document.querySelector(`.areaPergunta:nth-child(${index+1})`);
@@ -125,12 +125,39 @@ function verificaTela32(){
         const respInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(1)').value;
         const urlrespInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(2)').value;
 
+        questionAPI = {
+            title: pergunta,
+			color: corFundo,
+			answers: [
+				{
+					text: respCerta,
+					image: urlRespCerta,
+					isCorrectAnswer: true
+				},
+				{
+					text: respInc1,
+					image: urlrespInc1,
+					isCorrectAnswer: false
+                },
+                {
+					text: respInc2,
+					image: urlrespInc2,
+					isCorrectAnswer: false
+                },
+                {
+					text: respInc3,
+					image: urlrespInc3,
+					isCorrectAnswer: false
+                },
+            ]
+        }
+
         if(pergunta.length >= 20 && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
-            perguntaOk++;
+            quizAPI.questions.push(questionAPI)
         }
     }
 
-    if(perguntaOk === qtdPerguntas){
+    if(quizAPI.questions.length === qtdPerguntas){
         tela33();
     }else{
         alert("Por favor, preencha todos os campos.")
@@ -170,7 +197,7 @@ function geraNiveis(){
 
     tela33.innerHTML += 
     `
-    <button onclick="tela34()">Finalizar Quizz</button>
+    <button onclick="verificaTela33()">Finalizar Quizz</button>
     `
 
 
@@ -185,6 +212,43 @@ function toggleNivel(elemento) {
     areaNivel.classList.toggle('aumentar');
 }
 
+function verificaTela33(){
+    quizAPI.levels.length = 0;
+
+    for(let index=1; index<= qtdNiveis; index++){
+        const areaNivel = document.querySelector(`.areaNivel:nth-child(${index+1})`);
+
+        const tituloNivel = areaNivel.querySelector('input:nth-child(1)').value;
+        const acertoMin = Number(areaNivel.querySelector('input:nth-child(2)').value);
+        const urlNivel = areaNivel.querySelector('input:nth-child(3)').value;
+        const descricao = areaNivel.querySelector('input:nth-child(4)').value;
+
+        levelAPI = {
+
+			title: tituloNivel,
+			image: urlNivel,
+			text: descricao,
+			minValue: acertoMin
+		}
+
+        if(tituloNivel.length >= 10 && acertoMin >= 0 && acertoMin <=100 && descricao.length >= 30){
+            quizAPI.levels.push(levelAPI);
+        }
+    }
+    
+    if(quizAPI.levels.length === qtdNiveis){
+        tela34();
+    }else{
+        alert("Por favor, preencha todos os campos corretamente.")
+    }
+}
+
+function tela34(){
+    document.querySelector('.conteudo').innerHTML = "Cabou-se"
+
+    const request = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', quizAPI);
+    request.then(() => alert("Foi postado!"))
+}
 
 function criaTela1(){
     //limpaTela();
