@@ -20,6 +20,12 @@ function tela31(){
 
 let qtdPerguntas = 0;
 let qtdNiveis = 0;
+const quizAPI = {
+    title: '',
+    image: '',
+    questions: [],
+    levels: [] 
+}
 
 function verificaTela31(){
     const titulo = document.querySelector('input:nth-child(1)').value;
@@ -27,7 +33,9 @@ function verificaTela31(){
     qtdPerguntas = document.querySelector('input:nth-child(3)').value;
     qtdNiveis = document.querySelector('input:nth-child(4)').value;
 
-    if(titulo && url && qtdPerguntas && qtdNiveis){
+    if((titulo.length >= 20) && (titulo.length <= 65) && url && qtdPerguntas >=3 && qtdNiveis >=2){
+        quizAPI.title = titulo;
+        quizAPI.image = url;
         qtdPerguntas = Number(qtdPerguntas);
         qtdNiveis = Number(qtdNiveis);
         tela32();
@@ -117,7 +125,7 @@ function verificaTela32(){
         const respInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(1)').value;
         const urlrespInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(2)').value;
 
-        if(pergunta && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
+        if(pergunta.length >= 20 && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
             perguntaOk++;
         }
     }
