@@ -85,10 +85,39 @@ function geraPerguntas(){
 
     tela32.innerHTML += 
     `
-    <button onclick="tela33()">Prosseguir pra criar níveis</button>
+    <button onclick="verificaTela32()">Prosseguir pra criar níveis</button>
     `;
 
     
+}
+
+function verificaTela32(){
+    let perguntaOk = 0;
+
+    for(let index=1; index <= qtdPerguntas; index++){
+        const areaPergunta = document.querySelector(`.areaPergunta:nth-child(${index+1})`);
+
+        const pergunta = areaPergunta.querySelector('.divisao:nth-child(1)').querySelector('input:nth-child(1)').value;
+        const corFundo = areaPergunta.querySelector('input:nth-child(2)').value;
+        const respCerta = areaPergunta.querySelector('.divisao:nth-child(2)').querySelector('input:nth-child(2)').value;
+        const urlRespCerta = areaPergunta.querySelector('.divisao:nth-child(2)').querySelector('input:nth-child(3)').value;
+        const respInc1 = areaPergunta.querySelector('.divisao:nth-child(3)').querySelector('input:nth-child(2)').value;
+        const urlrespInc1 = areaPergunta.querySelector('.divisao:nth-child(3)').querySelector('input:nth-child(3)').value;
+        const respInc2 = areaPergunta.querySelector('.divisao:nth-child(4)').querySelector('input:nth-child(1)').value;
+        const urlrespInc2 = areaPergunta.querySelector('.divisao:nth-child(4)').querySelector('input:nth-child(2)').value;
+        const respInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(1)').value;
+        const urlrespInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(2)').value;
+
+        if(pergunta && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
+            perguntaOk++;
+        }
+    }
+
+    if(perguntaOk === qtdPerguntas){
+        tela33();
+    }else{
+        alert("Por favor, preencha todos os campos.")
+    }
 }
 
 function togglePergunta(elemento) {
@@ -252,11 +281,4 @@ function preencheQuizzes(resposta){
     }
 }
 
-criaTela1();
-<<<<<<< HEAD
-//tela31();
-=======
-//tela31();
->>>>>>> f84709f2bade312bf4b31c827e70a4373e7cb925
-
-  
+tela31();
