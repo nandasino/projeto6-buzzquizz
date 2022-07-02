@@ -301,7 +301,7 @@ function preencheQuizzes(resposta){
     }
 }
 
-criaTela1();
+//criaTela1();
 //tela31();
 
   
