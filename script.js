@@ -262,7 +262,7 @@ function preencheQuizzes(resposta){
         todosQuizzesArea.innerHTML += 
 
         `
-        <div class="quiz" onclick="obtemQuiz(this)">
+        <div class="quiz" onclick="tela2()">
             <img src="${listaQuizzes[index].image}" alt="">
             <div class="titulo-quiz">${listaQuizzes[index].title}</div>
         </div>
