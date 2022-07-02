@@ -94,7 +94,7 @@ button{
 }
 
 .quiz{
-    /*position: relative;*/
+    position: relative;
     width: 340px;
     height: 181px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
@@ -110,7 +110,7 @@ button{
 }
 
 .titulo-quiz{
-    /*position: absolute;*/
+    position: absolute;
     width: 309px;
     height: 54px;
     bottom: 0px;
@@ -325,6 +325,7 @@ button{
     .quiz-area{
         flex-direction: column;
         align-items: center;
+        
     }
 
     .quiz{
