@@ -371,7 +371,7 @@ function espacoPerguntaQuiz(questoes){
     for(let i=0;i<questoes.length;i++){
         document.querySelector(".espacoDePerguntas").innerHTML+=`
             <div class="caixaPergunta">
-                    <div class="titulo-caixaPergunta cor1"><h1>TITULO DA PERGUNTA</h1></div>
+                    <div class="titulo-caixaPergunta cor1">${questoes[i].title}</div>
                     <div class="imagensDaPergunta">
                         <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
                         <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
