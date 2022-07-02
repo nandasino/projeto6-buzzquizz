@@ -270,12 +270,15 @@ function preencheQuizzes(resposta){
         `
     }
 }
+let conteudoQuiz;
+
 function buscarQuiz(){
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9436");
     promessa.then(popularQuiz);
 }
 function popularQuiz(resposta){
     conteudoQuiz= resposta.data;
+    console.log(conteudoQuiz);
     tela2();
 }
 function tela2(){
@@ -283,27 +286,36 @@ function tela2(){
     document.querySelector(".conteudo").innerHTML+=`
     <div class="tela2">
     <div class="banner">
-        <div class="titulo-banner"><h1>TESTE</h1></div>
+        <div class="titulo-banner">${conteudoQuiz.title}</div>
     </div>
+</div>      
+    `
+espacoPerguntaQuiz();
+}
+function espacoPerguntaQuiz(){
+    document.querySelector(".tela2").innerHTML+=`
     <div class="espacoDePerguntas">
         <div class="caixaPergunta">
-            <div class="titulo-caixaPergunta cor1"><h1>TITULO DA PERGUNTA</h1></div>
+                <div class="titulo-caixaPergunta cor1"><h1>TITULO DA PERGUNTA</h1></div>
                 <div class="imagensDaPergunta">
-                <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
-                <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
-                <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevr</div>
-                <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevrv</div>
+                    <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
+                    <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
+                    <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevr</div>
+                    <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevrv</div>
                 </div>
         </div>   
     </div>
+    `
+resultadoQuiz();
+}
+function resultadoQuiz(){
+    document.querySelector(".tela2").innerHTML+=`
     <div class="resultado-Quiz">
         <div class="titulo-caixaResultado"><h1>PORCENTAGEM DO RESULTADO</h1></div>
         <div class="conteudosResultado"><img src="Imagens/Rectangle 36.png"><div class="textoResultado"><p>rjvnernvrejnvjreb</p></div></div>
     </div>
-</div>      
-    `
+    `  
 }
-
 criaTela1();
 //tela31();
 //tela2();
