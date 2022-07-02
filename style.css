@@ -87,10 +87,16 @@ button{
     justify-content: space-between;
     margin-top: 15px;
 }
-.imagensDaPergunta img{
+.opcao{
+    display: flex;
+    flex-direction: column;
     width: 49%;
-    height: 25%;
+    height: 28%;
+    margin-bottom: 15px;
+}
+.opcao img{
     object-fit: cover;
+    margin-bottom: 5px;
 }
 .resultado-Quiz{
     display: flex;
