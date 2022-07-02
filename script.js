@@ -218,7 +218,7 @@ function toggleNivel1() {
   }
 
 function criaTela1(){
-    limpaTela();
+    //limpaTela();
     const conteudo = document.querySelector('.conteudo');
     conteudo.innerHTML = 
     `
@@ -302,6 +302,6 @@ function preencheQuizzes(resposta){
 }
 
 criaTela1();
-tela31();
+//tela31();
 
   

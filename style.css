@@ -46,16 +46,22 @@ button{
 /* TELA 1 COMEÇA AQUI*/
 
 .tela1{
-    margin-left: 194px;
-    margin-right: 180px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    /*margin-left: 194px;
+    margin-right: 180px;*/
 }
 
 .seus-quizzes{
+    width: 1050px;
     margin-top: 138px;
 }
 
 .todos-quizzes{
-    margin-top: 48px;
+    width: 1050px;
+    /*margin-top: 48px;*/
+    margin: 48px auto;
 }
 
 .cabecalho-area{
@@ -84,17 +90,16 @@ button{
 .quiz-area{
     display: flex;
     flex-wrap: wrap;
-
-
+    justify-content: space-between;
 }
 
 .quiz{
-    position: relative;
+    /*position: relative;*/
     width: 340px;
     height: 181px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
     border-radius: 5px;
-    margin-right: 15px;
+    /*margin-right: 15px;*/
     margin-top: 13px;
 }
 
@@ -105,7 +110,7 @@ button{
 }
 
 .titulo-quiz{
-    position: absolute;
+    /*position: absolute;*/
     width: 309px;
     height: 54px;
     bottom: 0px;
@@ -116,10 +121,11 @@ button{
     font-size: 19px;
     line-height: 22px;
     color: #FFFFFF;
+    word-break: break-all;
 }
 
 .sem-quizz{
-    margin-right: 15px;
+    /*margin-right: 15px;*/
     height: 181px;
     border: 1px dashed red;
     border-radius: 5px;
@@ -302,8 +308,8 @@ button{
 }
 @media (max-width: 1100px){
     .tela1{
-        margin-left: 18px;
-        margin-right: 17px;
+        /*margin-left: 18px;
+        margin-right: 17px;*/
         display: flex;
         flex-direction: column;
     }
@@ -312,9 +318,9 @@ button{
         margin-top: 31px;
     }
 
-    .sem-quizz{
+    /*.sem-quizz{
         margin-right: 0px;
-    }
+    }*/
 
     .quiz-area{
         flex-direction: column;
@@ -323,6 +329,13 @@ button{
 
     .quiz{
         width: 100%;
-        margin-right: 0px;
+        /*margin-right: 0px;*/
+    }
+    .todos-quizzes{
+        width: 340px;
+        /*margin-top: 48px;*/
+    }
+    .seus-quizzes{
+        width: 340px;
     }
 }
