@@ -335,9 +335,9 @@ function preencheQuizzes(resposta){
     }
 }
 let conteudoQuiz;
-
+let questoes;
 function buscarQuiz(){
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9436");
+    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9418");
     promessa.then(popularQuiz);
 }
 function popularQuiz(resposta){
@@ -352,24 +352,27 @@ function tela2(){
     <div class="banner">
         <div class="titulo-banner">${conteudoQuiz.title}</div>
     </div>
+    <div class="espacoDePerguntas"></div>
 </div>      
     `
-espacoPerguntaQuiz();
+questoes= conteudoQuiz.questions;
+espacoPerguntaQuiz(questoes);
 }
-function espacoPerguntaQuiz(){
-    document.querySelector(".tela2").innerHTML+=`
-    <div class="espacoDePerguntas">
-        <div class="caixaPergunta">
-                <div class="titulo-caixaPergunta cor1"><h1>TITULO DA PERGUNTA</h1></div>
-                <div class="imagensDaPergunta">
-                    <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
-                    <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
-                    <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevr</div>
-                    <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevrv</div>
-                </div>
-        </div>   
-    </div>
-    `
+function espacoPerguntaQuiz(questoes){
+    console.log(questoes);
+    for(let i=0;i<questoes.length;i++){
+        document.querySelector(".espacoDePerguntas").innerHTML+=`
+            <div class="caixaPergunta">
+                    <div class="titulo-caixaPergunta cor1"><h1>TITULO DA PERGUNTA</h1></div>
+                    <div class="imagensDaPergunta">
+                        <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
+                        <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
+                        <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevr</div>
+                        <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevrv</div>
+                    </div>
+            </div>   
+        `
+    }
 resultadoQuiz();
 }
 function resultadoQuiz(){
