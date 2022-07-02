@@ -95,11 +95,32 @@ button{
 .resultado-Quiz{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 760px;
+    background-color: #FFFFFF;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 44px;
 }
 .titulo-caixaResultado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 99px;
     background-color: #EC362D;
+}
+.conteudosResultado{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.conteudosResultado img{
+ width: 50%;
+ height: 50%;
+ object-fit: cover;
+}
+.textoResultado{
+    width: 40%;
+    height: 50%;
 }
 /* TELA 1 COMEÇA AQUI*/
 
@@ -397,5 +418,21 @@ button{
 
     .caixinhaDeTexto{
     width: 100%;
+    }
+
+    /*TELA 2*/
+    .resultado-Quiz{
+        width: 100%;
+    }
+    .conteudosResultado{
+        display: flex;
+        flex-direction: column;
+    }
+    .conteudosResultado img{
+     width: 100%;
+     object-fit: cover;
+    }
+    .textoResultado{
+        width: 100%;
     }
 }
