@@ -352,7 +352,7 @@ function preencheQuizzes(resposta){
 let conteudoQuiz;
 let questoes;
 function buscarQuiz(){
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9418");
+    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9420");
     promessa.then(popularQuiz);
 }
 function popularQuiz(resposta){
@@ -375,18 +375,20 @@ espacoPerguntaQuiz(questoes);
 }
 function espacoPerguntaQuiz(questoes){
     console.log(questoes);
+    console.log(questoes.answers);
     for(let i=0;i<questoes.length;i++){
         document.querySelector(".espacoDePerguntas").innerHTML+=`
             <div class="caixaPergunta">
                     <div class="titulo-caixaPergunta cor1">${questoes[i].title}</div>
                     <div class="imagensDaPergunta">
-                        <div class="opcao"><img src="Imagens/Rectangle 36.png">vrevrevre</div>
-                        <div class="opcao"><img src="Imagens/Rectangle 36.png">vervrev</div>
-                        <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevr</div>
-                        <div class="opcao"><img src="Imagens/Rectangle 36.png">evrevrv</div>
                     </div>
             </div>   
         `
+    for (let j=0; j<questoes[i].answers.length; j++){
+        document.querySelector(".imagensDaPergunta").innerHTML+=`
+        <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+        `
+    }
     }
 resultadoQuiz();
 }
