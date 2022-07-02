@@ -254,7 +254,7 @@ function preencheQuizzes(resposta){
         todosQuizzesArea.innerHTML += 
 
         `
-        <div class="quiz" onclick="tela2()">
+        <div class="quiz" onclick="obtemQuiz(this)">
             <img src="${listaQuizzes[index].image}" alt="">
             <div class="titulo-quiz">${listaQuizzes[index].title}</div>
         </div>
@@ -262,6 +262,7 @@ function preencheQuizzes(resposta){
         `
     }
 }
+
 function tela2(){
     limpaTela();
     document.querySelector(".conteudo").innerHTML+=`
