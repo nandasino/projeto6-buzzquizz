@@ -221,7 +221,7 @@ function verificaTela33(){
         const tituloNivel = areaNivel.querySelector('input:nth-child(1)').value;
         const acertoMin = Number(areaNivel.querySelector('input:nth-child(2)').value);
         const urlNivel = areaNivel.querySelector('input:nth-child(3)').value;
-        const descricao = areaNivel.querySelector('input:nth-child(4)').value;
+        const descricao = areaNivel.querySelector('textarea').value;
 
         levelAPI = {
 
@@ -255,7 +255,13 @@ function tela34(){
     `
 
     const request = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', quizAPI);
-    request.then(() => alert("Foi postado!"))
+    request.then(Sucesso)
+}
+
+function Sucesso(resposta){
+   listaSeusQuizzes.push(resposta.data.id)
+   const listaSeusQuizzesSerializado = "";
+
 }
 
 function criaTela1(){
@@ -282,6 +288,7 @@ function criaTela1(){
 
     `
     geraQuizzes();
+  
 }
 
 const listaSeusQuizzes = [];
@@ -394,4 +401,5 @@ function resultadoQuiz(){
 //criaTela1();
 //tela31();
 //tela2();
-  
+
+
