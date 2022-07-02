@@ -125,7 +125,7 @@ function verificaTela32(){
         const respInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(1)').value;
         const urlrespInc3 = areaPergunta.querySelector('.divisao:nth-child(5)').querySelector('input:nth-child(2)').value;
 
-        if(pergunta && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
+        if(pergunta.length >= 20 && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
             perguntaOk++;
         }
     }
@@ -296,7 +296,7 @@ function tela2(){
     `
 }
 
-//criaTela1();
-tela31();
+criaTela1();
+//tela31();
 //tela2();
   
