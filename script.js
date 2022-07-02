@@ -252,7 +252,11 @@ function preencheQuizzes(resposta){
     }
 }
 
-//criaTela1();
-tela31();
+criaTela1();
+<<<<<<< HEAD
+//tela31();
+=======
+//tela31();
+>>>>>>> f84709f2bade312bf4b31c827e70a4373e7cb925
 
   
