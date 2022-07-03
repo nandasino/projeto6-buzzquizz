@@ -378,25 +378,31 @@ espacoPerguntaQuiz(questoes);
 function espacoPerguntaQuiz(questoes){
     console.log(questoes);
     console.log(questoes.answers);
+    let perguntas_container = document.querySelector('.espacoDePerguntas');
     for(let i=0;i<questoes.length;i++){
-        document.querySelector(".espacoDePerguntas").innerHTML+=`
+        perguntas_container.innerHTML+=`
             <div class="caixaPergunta">
                     <div class="titulo-caixaPergunta cor1">${questoes[i].title}</div>
                     <div class="imagensDaPergunta">
                     </div>
             </div>   
-        `    
-       
+        `;    
+        let DOM_respostas = perguntas_container.querySelector(".caixaPergunta:last-child");
+        for (let j=0; j<questoes[i].answers.length; j++){
+            DOM_respostas.innerHTML+=`
+            <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+            `
+        }
     }
 
-    for(let i=0;i<questoes.length;i++){
+   /* for(let i=0;i<questoes.length;i++){
         for (let index=0; index<=questoes.length; index++){
             document.querySelector(`.caixaPergunta:nth-child(${i+1}) .imagensDaPergunta`).innerHTML+=
             `
             <div class="opcao"><img src="${questoes[i].answers[index].image}">${questoes[i].answers[index].text}</div>
             `
         }
-    }   
+    }*/   
     
     
   
@@ -410,9 +416,9 @@ function resultadoQuiz(){
     </div>
     `  
 }
-//criaTela1();
+criaTela1();
 //tela31();
-buscarQuiz(9634);
+//buscarQuiz(9634);
 //tela2();
 
 
