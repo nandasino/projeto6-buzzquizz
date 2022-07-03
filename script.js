@@ -385,13 +385,21 @@ function espacoPerguntaQuiz(questoes){
                     <div class="imagensDaPergunta">
                     </div>
             </div>   
-        `
-        for (let j=0; j<questoes[i].answers.length; j++){
-            document.querySelector(".imagensDaPergunta").innerHTML+=`
-            <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+        `    
+       
+    }
+
+    for(let i=0;i<questoes.length;i++){
+        for (let index=0; index<=questoes.length; index++){
+            document.querySelector(`.caixaPergunta:nth-child(${i+1}) .imagensDaPergunta`).innerHTML+=
+            `
+            <div class="opcao"><img src="${questoes[i].answers[index].image}">${questoes[i].answers[index].text}</div>
             `
         }
-    }
+    }   
+    
+    
+  
 resultadoQuiz();
 }
 function resultadoQuiz(){
@@ -402,8 +410,9 @@ function resultadoQuiz(){
     </div>
     `  
 }
-criaTela1();
+//criaTela1();
 //tela31();
+buscarQuiz(9634);
 //tela2();
 
 
