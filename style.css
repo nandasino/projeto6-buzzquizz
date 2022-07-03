@@ -90,9 +90,9 @@ button{
 .opcao{
     display: flex;
     flex-direction: column;
-    width: 49%;
-    height: 28%;
+    width: 330px;
     margin-bottom: 15px;
+    margin-right: 5px;
 }
 .opcao img{
     object-fit: cover;
@@ -491,5 +491,8 @@ button{
     }
     .textoResultado{
         width: 100%;
+    }
+    .opcao{
+        width: 170px;
     }
 }
