@@ -387,7 +387,7 @@ function espacoPerguntaQuiz(questoes){
                     </div>
             </div>   
         `;    
-        let DOM_respostas = perguntas_container.querySelector(".caixaPergunta:last-child");
+        let DOM_respostas = perguntas_container.querySelector(".caixaPergunta:last-child.imagensDaPergunta");
         for (let j=0; j<questoes[i].answers.length; j++){
             DOM_respostas.innerHTML+=`
             <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
