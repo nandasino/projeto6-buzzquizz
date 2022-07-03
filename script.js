@@ -285,12 +285,11 @@ function criaTela1(){
 }
 
 const listaSeusQuizzes = [];
-
 function geraQuizzes(){
     const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promessa.then(preencheQuizzes);
 }
-
+let id_quiz;
 function preencheQuizzes(resposta){
     
     const SeusQuizzes = document.querySelector('.seus-quizzes');
@@ -332,9 +331,8 @@ function preencheQuizzes(resposta){
 
     for(let index=0; index < listaQuizzes.length; index++){
         todosQuizzesArea.innerHTML += 
-
         `
-        <div class="quiz" onclick="buscarQuiz()">
+        <div class="quiz" onclick="buscarQuiz(this.id)" id="${listaQuizzes[index].id}">
             <img src="${listaQuizzes[index].image}" alt="">
             <div class="titulo-quiz">${listaQuizzes[index].title}</div>
         </div>
@@ -344,15 +342,19 @@ function preencheQuizzes(resposta){
 }
 let conteudoQuiz;
 let questoes;
-function buscarQuiz(){
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/9420");
+
+function buscarQuiz(id){
+    console.log(id);
+    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`);
     promessa.then(popularQuiz);
 }
+
 function popularQuiz(resposta){
     conteudoQuiz= resposta.data;
     console.log(conteudoQuiz);
     tela2();
 }
+
 function tela2(){
     limpaTela();
     document.querySelector(".conteudo").innerHTML+=`
@@ -377,11 +379,11 @@ function espacoPerguntaQuiz(questoes){
                     </div>
             </div>   
         `
-    for (let j=0; j<questoes[i].answers.length; j++){
-        document.querySelector(".imagensDaPergunta").innerHTML+=`
-        <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
-        `
-    }
+        for (let j=0; j<questoes[i].answers.length; j++){
+            document.querySelector(".imagensDaPergunta").innerHTML+=`
+            <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+            `
+        }
     }
 resultadoQuiz();
 }
@@ -393,7 +395,7 @@ function resultadoQuiz(){
     </div>
     `  
 }
-//criaTela1();
+criaTela1();
 //tela31();
 //tela2();
   
