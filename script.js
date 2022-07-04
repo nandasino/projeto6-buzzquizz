@@ -474,10 +474,24 @@ function calculaResultado(){
 }
 
 function resultadoQuiz(){
-    document.querySelector(".tela2").innerHTML+=`
+    let menorDistancia = 101;
+    let proximidade;
+    let nivelAdequado;
+    let niveisDoQuiz = conteudoQuiz.levels;
+
+    for(let i=0; i<niveisDoQuiz.length;i++){
+        proximidade = Math.abs(resultado - niveisDoQuiz[i].minValue);
+        if(proximidade < menorDistancia){
+            menorDistancia = proximidade;
+            nivelAdequado = niveisDoQuiz[i];
+        }
+    }
+
+    document.querySelector(".tela2").innerHTML+=
+    `
     <div class="resultado-Quiz">
-        <div class="titulo-caixaResultado"><h1></h1></div>
-        <div class="conteudosResultado"><img src="Imagens/Rectangle 36.png"><div class="textoResultado"><p>rjvnernvrejnvjreb</p></div></div>
+        <div class="titulo-caixaResultado"><h1>${nivelAdequado.title}</h1></div>
+        <div class="conteudosResultado"><img src="${nivelAdequado.image}"><div class="textoResultado"><p>${nivelAdequado.text}</p></div></div>
     </div>
     `  
 }
