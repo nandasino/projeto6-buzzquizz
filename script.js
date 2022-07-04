@@ -388,7 +388,7 @@ function tela2(){
     limpaTela();
     document.querySelector(".conteudo").innerHTML+=`
     <div class="tela2">
-    <div class="banner">
+    <div class="banner" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${conteudoQuiz.image}');">
         <div class="titulo-banner">${conteudoQuiz.title}</div>
     </div>
     <div class="espacoDePerguntas"></div>
@@ -404,12 +404,19 @@ function espacoPerguntaQuiz(questoes){
     for(let i=0;i<questoes.length;i++){
         perguntas_container.innerHTML+=`
             <div class="caixaPergunta">
-                    <div class="titulo-caixaPergunta cor1">${questoes[i].title}</div>
+                    <div class="titulo-caixaPergunta" style="background-color:${questoes[i].color};">${questoes[i].title}</div>
                     <div class="imagensDaPergunta">
                     </div>
             </div>   
-        `;    
+        `;
         let DOM_respostas = perguntas_container.querySelector(".caixaPergunta:last-child .imagensDaPergunta");
+
+        let arrayquestoes = questoes[i].answers;
+        let misturado = arrayquestoes.map(value => ({ value, sort: Math.random() }))
+                                 .sort((a, b) => a.sort - b.sort)
+                                 .map(({ value }) => value);
+        questoes[i].answers = misturado;
+        
         for (let j=0; j<questoes[i].answers.length; j++){
             DOM_respostas.innerHTML+=`
             <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
