@@ -397,7 +397,7 @@ function espacoPerguntaQuiz(questoes){
         
         for (let j=0; j<questoes[i].answers.length; j++){
             DOM_respostas.innerHTML+=`
-            <div class="opcao"><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+            <div class="opcao" onclick="selecionaOpcao(${i},${j})" ><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
             `
         }
     }
@@ -411,10 +411,21 @@ function espacoPerguntaQuiz(questoes){
         }
     }*/   
     
-    
-  
-resultadoQuiz();
 }
+let arrayRespostas=[];
+
+function selecionaOpcao(questao,opcao){
+    for (let x = 0; x < arrayRespostas.length; x++) {
+        if(arrayRespostas[x].question === questao) return;
+    }
+
+    arrayRespostas.push({
+        question: questao,
+        chosen_alternative: opcao
+        });
+    console.log(arrayRespostas);
+}
+
 function resultadoQuiz(){
     document.querySelector(".tela2").innerHTML+=`
     <div class="resultado-Quiz">
