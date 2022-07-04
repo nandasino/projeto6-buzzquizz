@@ -530,7 +530,10 @@ function resultadoQuiz(){
     `  
 }
 function reiniciaQuiz(){
-    
+    buscarQuiz(conteudoQuiz.id)
+    const topbar = document.querySelector('.conteudo');
+    topbar.scrollIntoView();
+    arrayRespostas = [];
 }
 function voltaHome(){
     document.location.reload(true);
