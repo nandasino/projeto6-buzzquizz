@@ -92,6 +92,8 @@ button{
     width: 330px;
     margin-bottom: 15px;
     margin-right: 5px;
+    overflow-wrap: break-word;
+
 }
 .opcao img{
     object-fit: cover;
