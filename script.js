@@ -522,8 +522,18 @@ function resultadoQuiz(){
     <div class="resultado-Quiz">
         <div class="titulo-caixaResultado"><h1>${nivelAdequado.title}</h1></div>
         <div class="conteudosResultado"><img src="${nivelAdequado.image}"><div class="textoResultado"><p>${nivelAdequado.text}</p></div></div>
+        <div class="botoes">
+            <button class="botaoResultaQuiz" onclick="reiniciaQuiz()">Reiniciar Quizz</button>
+            <button class="botaoFinal" onclick="voltaHome()">Voltar para home</button>
+        </div>
     </div>
     `  
+}
+function reiniciaQuiz(){
+    
+}
+function voltaHome(){
+    document.location.reload(true);
 }
 criaTela1();
 //tela31();
