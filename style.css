@@ -470,6 +470,10 @@ button{
         margin-top: 31px;
     }
 
+    .cabecalho-area{
+        justify-content: space-between;
+    }
+
     /*.sem-quizz{
         margin-right: 0px;
     }*/
