@@ -213,6 +213,7 @@ function toggleNivel(elemento) {
 }
 
 function verificaTela33(){
+    let temNivel0 = false;
     quizAPI.levels.length = 0;
 
     for(let index=1; index<= qtdNiveis; index++){
@@ -235,11 +236,22 @@ function verificaTela33(){
             quizAPI.levels.push(levelAPI);
         }
     }
+
+    for(let i=0; i<quizAPI.levels.length;i++){
+        if(quizAPI.levels[i].minValue == 0){
+            temNivel0 = true;
+        }
+    }
+
+    console.log(quizAPI.levels);
+    console.log(temNivel0);
     
-    if(quizAPI.levels.length === qtdNiveis){
+    if(quizAPI.levels.length === qtdNiveis && temNivel0){
         tela34();
     }else{
+        quizAPI.levels = [];
         alert("Por favor, preencha todos os campos corretamente.")
+        console.log(quizAPI.levels)
     }
 }
 
