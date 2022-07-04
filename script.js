@@ -244,23 +244,35 @@ function verificaTela33(){
 }
 
 function tela34(){
+    const request = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', quizAPI);
+    request.then(Sucesso)
+    request.catch(() => alert("Deu ruim! Você deve ter colocado uma cor inválida."))
+}
+
+function Sucesso(resposta){
+
     document.querySelector('.conteudo').innerHTML = 
     `
     <div class="tela34">
         <h1>Seu quiz está pronto!</h1>
         <img src="Imagens/Rectangle 36.png" alt="">
         <div class="acessar-quizz"><p>Acessar Quizz</p></div>
-        <div class="voltar-home">Voltar para home</div>
+        <div class="voltar-home" onclick="criaTela1()">Voltar para home</div>
     </div>
     `
 
-    const request = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', quizAPI);
-    request.then(Sucesso)
-}
+    if(localStorage.getItem("lista") === null){
+        listaSeusQuizzes = [];
+    }
 
-function Sucesso(resposta){
-   listaSeusQuizzes.push(resposta.data.id)
-   const listaSeusQuizzesSerializado = "";
+    listaSeusQuizzes.push(resposta.data.id);
+    console.log(listaSeusQuizzes);
+    const listaSeusQuizzesSerializado = JSON.stringify(listaSeusQuizzes);
+    console.log(listaSeusQuizzesSerializado);
+    localStorage.setItem("lista", listaSeusQuizzesSerializado);
+    console.log(localStorage);
+    listaSeusQuizzes = JSON.parse(localStorage.getItem("lista"));
+    console.log(listaSeusQuizzes);
 
 }
 
@@ -291,16 +303,29 @@ function criaTela1(){
   
 }
 
-const listaSeusQuizzes = [];
+let listaSeusQuizzes = JSON.parse(localStorage.getItem("lista"));
+
 function geraQuizzes(){
     const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promessa.then(preencheQuizzes);
 }
-let id_quiz;
+
 function preencheQuizzes(resposta){
-    
+
+    console.log(listaSeusQuizzes);
+
     const SeusQuizzes = document.querySelector('.seus-quizzes');
-    if (listaSeusQuizzes.length > 0){
+    if (listaSeusQuizzes[0] == null){
+        SeusQuizzes.innerHTML = 
+        `
+        <div class="sem-quizz">
+            <div class="aviso">Você não criou nenhum quizz ainda :(</div>
+            <div class="moldura">
+                <div class="botao-criar" onclick="tela31()">Criar Quizz</div>
+            </div>    
+        </div>
+        `
+    }else{
         SeusQuizzes.innerHTML = 
         `
         <div class="cabecalho-area">
@@ -312,39 +337,36 @@ function preencheQuizzes(resposta){
             </div>
         </div>
         <div class="quiz-area">
-        <div class="quiz">
-            <img src="Imagens/Rectangle 36.png" alt="">
-            <div class="titulo-quiz">TESTE</div>
-        </div>
         </div>
 
-        `
-    }else{
-        SeusQuizzes.innerHTML = 
-        `
-        <div class="sem-quizz">
-            <div class="aviso">Você não criou nenhum quizz ainda :(</div>
-            <div class="moldura">
-                <div class="botao-criar" onclick="tela31()">Criar Quizz</div>
-            </div>    
-        </div>
-
-        `
+            `
     }
 
     const listaQuizzes = resposta.data;
     console.log(listaQuizzes);
-    const todosQuizzesArea = document.querySelector('.todos-quizzes .quiz-area');
+    
 
     for(let index=0; index < listaQuizzes.length; index++){
-        todosQuizzesArea.innerHTML += 
-        `
-        <div class="quiz" onclick="buscarQuiz(this.id)" id="${listaQuizzes[index].id}">
-            <img src="${listaQuizzes[index].image}" alt="">
-            <div class="titulo-quiz">${listaQuizzes[index].title}</div>
-        </div>
+        if(listaSeusQuizzes.includes(listaQuizzes[index].id)){
+            const seusQuizzesArea = document.querySelector('.seus-quizzes .quiz-area');
+            seusQuizzesArea.innerHTML += 
+            `
+            <div class="quiz" onclick="buscarQuiz(this.id)" id="${listaQuizzes[index].id}">
+                <img src="${listaQuizzes[index].image}" alt="">
+                <div class="titulo-quiz">${listaQuizzes[index].title}</div>
+            </div>
+            `
+        }else{
+            const todosQuizzesArea = document.querySelector('.todos-quizzes .quiz-area');
+            todosQuizzesArea.innerHTML += 
+            `
+            <div class="quiz" onclick="buscarQuiz(this.id)" id="${listaQuizzes[index].id}">
+                <img src="${listaQuizzes[index].image}" alt="">
+                <div class="titulo-quiz">${listaQuizzes[index].title}</div>
+            </div>
 
-        `
+            `
+        }
     }
 }
 let conteudoQuiz;
