@@ -255,8 +255,8 @@ function Sucesso(resposta){
     `
     <div class="tela34">
         <h1>Seu quiz está pronto!</h1>
-        <img src="Imagens/Rectangle 36.png" alt="">
-        <div class="acessar-quizz"><p>Acessar Quizz</p></div>
+        <img src="${resposta.data.image}" alt="">
+        <div class="acessar-quizz" onclick=buscarQuiz(${resposta.data.id})><p>Acessar Quizz</p></div>
         <div class="voltar-home" onclick="criaTela1()">Voltar para home</div>
     </div>
     `
