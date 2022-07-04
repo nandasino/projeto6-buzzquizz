@@ -315,7 +315,8 @@ function preencheQuizzes(resposta){
     console.log(listaSeusQuizzes);
 
     const SeusQuizzes = document.querySelector('.seus-quizzes');
-    if (listaSeusQuizzes[0] == null){
+    if (listaSeusQuizzes == null){
+        listaSeusQuizzes = [];
         SeusQuizzes.innerHTML = 
         `
         <div class="sem-quizz">
