@@ -443,7 +443,7 @@ function espacoPerguntaQuiz(questoes){
         
         for (let j=0; j<questoes[i].answers.length; j++){
             DOM_respostas.innerHTML+=`
-            <div class="opcao" onclick="selecionaOpcao(${i},${j})" ><img src="${questoes[i].answers[j].image}">${questoes[i].answers[j].text}</div>
+            <div class="opcao" onclick="selecionaOpcao(${i},${j},this)" ><img src="${questoes[i].answers[j].image}"><h1>${questoes[i].answers[j].text}</h1></div>
             `
         }
     }
@@ -460,11 +460,20 @@ function espacoPerguntaQuiz(questoes){
 }
 let arrayRespostas=[];
 
-function selecionaOpcao(questao,opcao){
+function selecionaOpcao(questao,opcao,elemento){
     for (let x = 0; x < arrayRespostas.length; x++) {
         if(arrayRespostas[x].question === questao) return;
     }
 
+    const imgsDaPergunta = elemento.parentNode;
+    
+    for(let i=1; i<=imgsDaPergunta.children.length;i++){
+        imgsDaPergunta.querySelector(`.opcao:nth-child(${i})`).classList.add("apagado")
+    }
+
+    elemento.classList.remove("apagado");
+
+    
     arrayRespostas.push({
         question: questao,
         chosen_alternative: opcao
