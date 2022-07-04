@@ -27,13 +27,23 @@ const quizAPI = {
     levels: [] 
 }
 
+function validURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+}
+
 function verificaTela31(){
     const titulo = document.querySelector('input:nth-child(1)').value;
     const url = document.querySelector('input:nth-child(2)').value;
     qtdPerguntas = document.querySelector('input:nth-child(3)').value;
     qtdNiveis = document.querySelector('input:nth-child(4)').value;
 
-    if((titulo.length >= 20) && (titulo.length <= 65) && url && qtdPerguntas >=3 && qtdNiveis >=2){
+    if((titulo.length >= 20) && (titulo.length <= 65) && validURL(url) && qtdPerguntas >=3 && qtdNiveis >=2){
         quizAPI.title = titulo;
         quizAPI.image = url;
         qtdPerguntas = Number(qtdPerguntas);
@@ -108,6 +118,8 @@ function togglePergunta(elemento) {
     areaPergunta.classList.toggle('aumentar');
 }
 
+var reg = /^#[0-9A-F]{6}$/i;
+
 function verificaTela32(){
     quizAPI.questions.length = 0;
 
@@ -152,7 +164,9 @@ function verificaTela32(){
             ]
         }
 
-        if(pergunta.length >= 20 && corFundo && respCerta && urlRespCerta && respInc1 && urlrespInc1 && respInc2 && urlrespInc2 && respInc3 && urlrespInc3){
+        console.log(reg.test(corFundo))
+
+        if(pergunta.length >= 20 && reg.test(corFundo) && respCerta && validURL(urlRespCerta) && respInc1 && validURL(urlrespInc1) && respInc2 && validURL(urlrespInc2) && respInc3 && validURL(urlrespInc3)){
             quizAPI.questions.push(questionAPI)
         }
     }
@@ -160,7 +174,8 @@ function verificaTela32(){
     if(quizAPI.questions.length === qtdPerguntas){
         tela33();
     }else{
-        alert("Por favor, preencha todos os campos.")
+        quizAPI.questions = [];
+        alert("Por favor, preencha todos os campos corretamente.")
     }
 }
 
@@ -232,7 +247,7 @@ function verificaTela33(){
 			minValue: acertoMin
 		}
 
-        if(tituloNivel.length >= 10 && acertoMin >= 0 && acertoMin <=100 && descricao.length >= 30){
+        if(tituloNivel.length >= 10 && acertoMin >= 0 && acertoMin <=100 && descricao.length >= 30 && validURL(urlNivel)){
             quizAPI.levels.push(levelAPI);
         }
     }
@@ -242,16 +257,12 @@ function verificaTela33(){
             temNivel0 = true;
         }
     }
-
-    console.log(quizAPI.levels);
-    console.log(temNivel0);
     
     if(quizAPI.levels.length === qtdNiveis && temNivel0){
         tela34();
     }else{
         quizAPI.levels = [];
         alert("Por favor, preencha todos os campos corretamente.")
-        console.log(quizAPI.levels)
     }
 }
 
