@@ -463,7 +463,7 @@ function calculaResultado(){
     let somaCertas= 0;
     let questaoArray;
     let opcaoArray;
-    for (let i=0; i<arrayRespostas;i++){
+    for (let i=0; i<arrayRespostas.length;i++){
         questaoArray= arrayRespostas[i].question;
         opcaoArray = arrayRespostas[i].chosen_alternative;
         if(conteudoQuiz.questions[questaoArray].answers[opcaoArray].isCorrectAnswer){
