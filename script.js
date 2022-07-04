@@ -447,12 +447,36 @@ function selecionaOpcao(questao,opcao){
         chosen_alternative: opcao
         });
     console.log(arrayRespostas);
+    const espacoDePerguntas = document.querySelector(".espacoDePerguntas");
+    const questoes = espacoDePerguntas.querySelectorAll(".caixaPergunta");
+
+    if (arrayRespostas.length < conteudoQuiz.questions.length){
+
+    }
+    else{
+        calculaResultado();
+        resultadoQuiz();
+    }
+}
+let resultado;
+function calculaResultado(){
+    let somaCertas= 0;
+    let questaoArray;
+    let opcaoArray;
+    for (let i=0; i<arrayRespostas;i++){
+        questaoArray= arrayRespostas[i].question;
+        opcaoArray = arrayRespostas[i].chosen_alternative;
+        if(conteudoQuiz.questions[questaoArray].answers[opcaoArray].isCorrectAnswer){
+            somaCertas++;
+        }
+    }
+    resultado = Math.round(100*(somaCertas/arrayRespostas.length));
 }
 
 function resultadoQuiz(){
     document.querySelector(".tela2").innerHTML+=`
     <div class="resultado-Quiz">
-        <div class="titulo-caixaResultado"><h1>PORCENTAGEM DO RESULTADO</h1></div>
+        <div class="titulo-caixaResultado"><h1></h1></div>
         <div class="conteudosResultado"><img src="Imagens/Rectangle 36.png"><div class="textoResultado"><p>rjvnernvrejnvjreb</p></div></div>
     </div>
     `  
