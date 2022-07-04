@@ -120,6 +120,7 @@ button{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    overflow-wrap: break-word;
 }
 .conteudosResultado img{
  width: 50%;
