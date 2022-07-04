@@ -474,15 +474,13 @@ function calculaResultado(){
 }
 
 function resultadoQuiz(){
-    let menorDistancia = 101;
-    let proximidade;
     let nivelAdequado;
     let niveisDoQuiz = conteudoQuiz.levels;
+    niveisDoQuiz.sort((a,b) => a.minValue - b.minValue)
+    console.log(niveisDoQuiz)
 
     for(let i=0; i<niveisDoQuiz.length;i++){
-        proximidade = Math.abs(resultado - niveisDoQuiz[i].minValue);
-        if(proximidade < menorDistancia){
-            menorDistancia = proximidade;
+        if(resultado >= niveisDoQuiz[i].minValue){
             nivelAdequado = niveisDoQuiz[i];
         }
     }
